@@ -77,7 +77,7 @@ namespace SalesWebMvc.Controllers
             }
             catch (IntegrityException e)
             {
-                throw new IntegrityException("Can't delete seller because he/she has sales");
+                return RedirectToAction(nameof(Error), new { message = e.Message });
             }
             }
         public async Task<IActionResult> Details(int? id)
